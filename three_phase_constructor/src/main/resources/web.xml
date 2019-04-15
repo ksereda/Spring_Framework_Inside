@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+
+    <bean class="three_phase_constructor.PostProxyInvokerContextListener"/>
+    <bean class="three_phase_constructor.ProfilingHandlerBeanPostProcessor"/>
+    <bean class="org.springframework.context.annotation.CommonAnnotationBeanPostProcessor"/>
+    <bean class="three_phase_constructor.InjectRandomIntAnnotationBeanPostProcessor"/>
+
+    <bean class="three_phase_constructor.TerminatorQuoter" id="terminatorQuoter2">
+        <property name="message" value="I'll be back"/>
+    </bean>
+
+</beans>
