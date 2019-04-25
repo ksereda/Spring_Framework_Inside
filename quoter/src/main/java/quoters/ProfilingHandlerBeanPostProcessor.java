@@ -25,8 +25,8 @@ public class ProfilingHandlerBeanPostProcessor implements BeanPostProcessor {
     Map<String, Class> map = new HashMap();
     private ProfilingController controller = new ProfilingController();
 
-    // Запоминаем оригинальные классы тех бинов, для которых надо что-то сделать,
-    public Object postProcessBeforeInitialization(Object bean, String beanName) {
+    // Запоминаем оригинальные классы тех бинов, для которых надо что-то сделать, складываем их в map.
+    public Object postProcessBeforeInitialization(Object bean, String beanName) {   // String beanName - никогда не меняется
         Class<?> beanClass = bean.getClass();
         if (beanClass.isAnnotationPresent(Profiling.class)) {
             map.put(beanName, beanClass);
@@ -41,10 +41,10 @@ public class ProfilingHandlerBeanPostProcessor implements BeanPostProcessor {
     }
 
     // Делаем что-то для бинов
-    public Object postProcessAfterInitialization(final Object bean, String beanName) {
+    public Object postProcessAfterInitialization(final Object bean, String beanName) {   // String beanName - никогда не меняется
         Class beanClass = bean.getClass();
         if (beanClass != null) {
-            return Proxy.newProxyInstance(beanClass.getClassLoader(), beanClass.getInterfaces(), new InvocationHandler() {
+            return Proxy.newProxyInstance(beanClass.getClassLoader(), beanClass.getInterfaces(), new InvocationHandler() {   // генерируем новый proxy объект на лету (Dynamic proxy)
                 public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
                     // здесь огика которая будет в каждом классе который мы создадим на лету
                     if (controller.isEnabled()) {   // если флаг включен, то делаем вот это, а если не включен, то просто вернуть прокси, который ничего не делает
@@ -61,7 +61,7 @@ public class ProfilingHandlerBeanPostProcessor implements BeanPostProcessor {
 
                 }
             });  // создает объект из нового класса, который он сам сгенерирует на лету, где
-                 // classLoader - при помощи него новый сгенерированный класс загрузится в кучу,
+                 // getClassLoader - при помощи него новый сгенерированный класс загрузится в кучу (до java 7 - в perm, после java 7 - в heap),
                  // getInterfaces - список интерфейсов, которые должен имплементировать тот класс который сгенерируется на лету,
                  // InvokationHandler - объект, который будет инкапсулировать логику, которая попадет во все методы класса, который сгенерируется на лету
         }
