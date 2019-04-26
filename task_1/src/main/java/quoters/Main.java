@@ -12,7 +12,7 @@ public class Main {
 
     public static void main(String[] args) throws Exception  {
         ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("web.xml");  // имплементация этого контекста анализируется и сканируется XmlBeanDefenitionsReader-ом
-//        context.getBean(TerminatorQuoter.class);  // по классу неверно! надо по интерфейсу! т.к. мы не знаем, что случится с классом в будущем
+//        context.getBean(deprecated_annotation.TerminatorQuoter.class);  // по классу неверно! надо по интерфейсу! т.к. мы не знаем, что случится с классом в будущем
         while (true) {
             Thread.sleep(100);
             context.getBean(Quoter.class).sayQuote();

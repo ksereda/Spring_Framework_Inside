@@ -1,7 +1,6 @@
-package three_phase_constructor;
+package deprecated_annotation;
 
 import org.springframework.beans.factory.config.BeanPostProcessor;
-
 import javax.management.MBeanServer;
 import javax.management.ObjectName;
 import java.lang.management.ManagementFactory;

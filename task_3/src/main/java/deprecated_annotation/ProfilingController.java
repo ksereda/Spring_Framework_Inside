@@ -1,4 +1,5 @@
-package three_phase_constructor;
+package deprecated_annotation;
+
 
 /**
  * по умолчанию включено Профилирование (enabled = true)

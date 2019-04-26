@@ -1,5 +1,10 @@
 package three_phase_constructor;
 
+import deprecated_annotation.InjectRandomInt;
+import deprecated_annotation.PostProxy;
+import deprecated_annotation.Profiling;
+import deprecated_annotation.Quoter;
+
 import javax.annotation.PostConstruct;
 
 @Profiling
