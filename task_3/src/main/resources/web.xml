@@ -8,12 +8,9 @@
     <context:annotation-config/>
     <bean class="deprecated_annotation.DeprecationHandlerBeanFactoryPostProcessor"/>
 
-    <bean class="deprecated_annotation.PostProxyInvokerContextListener"/>
-    <bean class="deprecated_annotation.ProfilingHandlerBeanPostProcessor"/>
     <bean class="org.springframework.context.annotation.CommonAnnotationBeanPostProcessor"/>
-    <bean class="deprecated_annotation.InjectRandomIntAnnotationBeanPostProcessor"/>
 
-    <bean class="deprecated_annotation.TerminatorQuoter" id="terminatorQuoter2">
+    <bean class="deprecated_annotation.InformationTable" id="InformationTable2">
         <property name="message" value="I'll be back"/>
     </bean>
 

@@ -6,6 +6,7 @@ task 3: BeanFactoryPostProcessor
 `BeanFactoryPostProcessor` - интерфейс. Он позволяет настраивать `BeanDefinitions`, до того, как создаются бины. Работает на этапе, когда кроме `BeanDefinitions` еще ничего нету (никакие бины не создались, ничего еще нету).
 
 Что работает раньше, `BeanFactoryPostProcessor` или `BeanPostProcessor` ?
+
 Ответ: `BeanFactoryPostProcessor` отработает раньше. Он работает еще до того, как бины созданы и он может что-то подкрутить в `BeanDefinitions`.
 
 Он содержит 1 метод `postProcessorBeanFactory()` у которого есть доступ к `BeanFactory`, т.е. мы можем как-то повлиять на `BeanFactory` до того, как он начнет работать и повлиять на `BeanDefinitions` до того, как `BeanFactory` из них начнет создавать бины.

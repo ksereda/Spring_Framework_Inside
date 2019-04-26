@@ -2,11 +2,9 @@ package deprecated_annotation;
 
 import javax.annotation.PostConstruct;
 
-@Profiling
-@DeprecatedClass(newImpl = T1000.class)
-public class TerminatorQuoter implements Quoter {
+@DeprecatedClass(newImpl = NewInformationTable.class)
+public class InformationTable implements Quoter {
 
-    @InjectRandomInt(min = 2, max = 7)
     private int repeat;
     private String message;
 
@@ -16,7 +14,7 @@ public class TerminatorQuoter implements Quoter {
         System.out.println(repeat);
     }
 
-    public TerminatorQuoter() {
+    public InformationTable() {
         System.out.println("Phase 1");
     }
 
@@ -24,7 +22,6 @@ public class TerminatorQuoter implements Quoter {
         this.message = message;
     }
 
-    @PostProxy
     public void sayQuote() {
         System.out.println("Phase 3");
         for (int i = 0; i < repeat; i++) {
