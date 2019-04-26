@@ -1,6 +1,5 @@
 package three_phase_constructor;
 
-import deprecated_annotation.PostProxy;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.config.BeanDefinition;
 import org.springframework.beans.factory.config.ConfigurableListableBeanFactory;

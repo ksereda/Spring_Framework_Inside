@@ -1,9 +1,6 @@
 package three_phase_constructor;
 
-import deprecated_annotation.Profiling;
-import deprecated_annotation.ProfilingController;
 import org.springframework.beans.factory.config.BeanPostProcessor;
-
 import javax.management.MBeanServer;
 import javax.management.ObjectName;
 import java.lang.management.ManagementFactory;
@@ -27,7 +24,7 @@ import java.util.Map;
 public class ProfilingHandlerBeanPostProcessor implements BeanPostProcessor {
 
     Map<String, Class> map = new HashMap();
-    private ProfilingController controller = new deprecated_annotation.ProfilingController();
+    private ProfilingController controller = new ProfilingController();
 
     // Запоминаем оригинальные классы тех бинов, для которых надо что-то сделать,
     public Object postProcessBeforeInitialization(Object bean, String beanName) {

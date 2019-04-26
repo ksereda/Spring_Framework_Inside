@@ -1,7 +1,5 @@
 package three_phase_constructor;
 
-import deprecated_annotation.ProfilingControllerMBean;
-
 /**
  * по умолчанию включено Профилирование (enabled = true)
  */

@@ -1,6 +1,5 @@
 package three_phase_constructor;
 
-import deprecated_annotation.InjectRandomInt;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.config.BeanPostProcessor;
 import org.springframework.util.ReflectionUtils;
@@ -13,7 +12,7 @@ public class InjectRandomIntAnnotationBeanPostProcessor implements BeanPostProce
     public Object postProcessBeforeInitialization(Object bean, String beanName) {
         Field[] fields = bean.getClass().getDeclaredFields();  // достаем все fields
         for (Field field : fields) {
-            deprecated_annotation.InjectRandomInt annotation = field.getAnnotation(InjectRandomInt.class);  // если над полем есть @InjectRandomInt
+            InjectRandomInt annotation = field.getAnnotation(InjectRandomInt.class);  // если над полем есть @InjectRandomInt
             if (annotation != null) {
                 int min = annotation.min();  // достаем min у аннотации
                 int max = annotation.max();  // достаем max у аннотации
