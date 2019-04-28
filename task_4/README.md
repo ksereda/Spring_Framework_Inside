@@ -1,4 +1,4 @@
-task 3: BeanFactoryPostProcessor
+task 4: PropertiesBeanDefinitionReader
 
 
 - Пишем свой тип контекста
