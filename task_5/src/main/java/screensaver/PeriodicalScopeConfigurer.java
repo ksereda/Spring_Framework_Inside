@@ -24,13 +24,12 @@ public class PeriodicalScopeConfigurer implements Scope {
             Pair<LocalTime, Object> pair = map.get(name);  // достаем пару по ключу (имя)
             // сколько времени назад был создан бин в той паре. Если он был создан давно, то нам надо получить новый объект, заменить в этой map и вернуть тому, кто сделает запрос на получение его из map
             int secondsSinceLastRequest = LocalTime.now().getSecond() - pair.getKey().getSecond();
-            if (secondsSinceLastRequest > 3) {  // проверяем, если прошло > 3 секунд
+            if (secondsSinceLastRequest > 3) {  // проверяем, если прошло > 3 секунды
                 map.put(name, new Pair<>(LocalTime.now(), objectFactory.getObject()));  // то кладем в map имя бина и новую пару и еще раз по новому вытаскиваем бин
             }
         } else {
-            map.put(name, new Pair<>(LocalTime.now(), objectFactory.getObject()));  // Если бина нету в map, то его надо туда положить. Хначеие - это пара, в которой "Сейчас" и
-            // объект, который вытаскиваем из objectFactory (создается новый объект и "Сейчас" кладется
-            // и запоминается сколько времени
+            map.put(name, new Pair<>(LocalTime.now(), objectFactory.getObject()));  // Если бина нету в map, то его надо туда положить. Значеие - это пара, в которой "Сейчас" и
+            // объект, который вытаскиваем из objectFactory (создается новый объект и "Сейчас") кладется и запоминается сколько времени
         }
 
         return map.get(name).getValue();
