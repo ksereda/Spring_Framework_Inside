@@ -1,4 +1,4 @@
-package interfaces.subtask_3;
+package interfaces.subtask_4;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;

@@ -1,4 +1,4 @@
-package interfaces.subtask_3;
+package interfaces.subtask_4;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
