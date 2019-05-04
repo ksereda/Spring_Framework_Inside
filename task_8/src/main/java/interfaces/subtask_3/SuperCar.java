@@ -1,4 +1,4 @@
-package interfaces.subtask_2;
+package interfaces.subtask_3;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -20,7 +20,7 @@ public class SuperCar implements Car {
     }
 
     @Autowired
-    public void superSpeed(Engine engine) {
+    public void гретьВоду(Engine engine) {
         System.out.println(engine + " start");
     }
 
